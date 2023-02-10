@@ -7,7 +7,7 @@ import { Section } from '../components/Section';
 import { Season as SeasonInterface } from '../interfaces';
 import { formatDate, tmdbImageSrc } from '../utils';
 
-export const Season = () => {
+export const SeasonPage = () => {
   const [season, setSeason] = useState<SeasonInterface | null>(null);
 
   const params = useParams<any>();
@@ -71,7 +71,7 @@ export const Season = () => {
               alt={episode.title}
               className="min-w-[300px] w-[300px] h-[150px]"
             ></Image>
-            <div className="overflow-hidden flex flex-col gap-3 mobile:py-3">
+            <div className="overflow-hidden flex flex-col gap-3 mobile:py-3 w-full">
               <p className="text-lg truncate">
                 {episode.episodeNumber}. {episode.title}
               </p>

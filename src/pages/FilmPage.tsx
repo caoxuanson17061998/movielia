@@ -17,7 +17,7 @@ interface Props {
   mediaType: MediaType;
 }
 
-export const Film = (props: Props) => {
+export const FilmPage = (props: Props) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { id } = useParams<any>();

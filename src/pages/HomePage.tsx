@@ -10,7 +10,7 @@ import { TrendingHero } from '../components/TrendingHero';
 import { Film } from '../interfaces';
 import { mergeFilms, tmdbImageSrc } from '../utils';
 
-export const Home = () => {
+export const HomePage = () => {
   const navigate = useNavigate();
 
   const [trendings, setTrendings] = useState<Film[]>([]);
@@ -20,7 +20,6 @@ export const Home = () => {
   const [topRatedMovie, setTopRatedMovie] = useState<Film[]>([]);
 
   const [trailerSrc, setTrailerSrc] = useState('');
-  const [title, setTitle] = useState('');
 
   const playTrailer = async (film: Film) => {
     const trailers = await tmdbApi.getTrailers(film.mediaType, film.id);

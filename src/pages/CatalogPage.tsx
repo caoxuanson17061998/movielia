@@ -17,7 +17,7 @@ interface Props {
   type: MediaType | 'search' | 'list';
 }
 
-export const Catalog = (props: Props) => {
+export const CatalogPage = (props: Props) => {
   let title = '';
   let request: (page: number) => Promise<{
     totalPages: number;
