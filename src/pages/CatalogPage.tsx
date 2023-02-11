@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useRef, useState } from 'react';
 import {
   useLocation,
@@ -25,11 +26,10 @@ export const CatalogPage = (props: Props) => {
   }>;
 
   const [films, setFilms] = useState<Film[]>([]);
-  const [params, _] = useSearchParams();
+  const [params] = useSearchParams();
   const page = useRef(1);
   const totalPage = useRef(2);
   const loadingRef = useRef(false);
-  const [onLoading, setOnLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { listTitle } = useParams<any>();
@@ -66,11 +66,9 @@ export const CatalogPage = (props: Props) => {
 
   const fetch = async () => {
     loadingRef.current = true;
-    setOnLoading(true);
 
     const { films, totalPages } = await request(page.current);
 
-    setOnLoading(false);
     loadingRef.current = false;
 
     totalPage.current = totalPages;

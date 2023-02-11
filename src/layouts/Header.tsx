@@ -26,7 +26,7 @@ const MENU_CLASS_ACTIVE = `
 
 export const Header = () => {
   const location = useLocation();
-  const [params, _] = useSearchParams();
+  const [params] = useSearchParams();
   const navigate = useNavigate();
 
   const [pathname, setPathname] = useState('');
@@ -56,11 +56,6 @@ export const Header = () => {
     }
   };
 
-  const onWindowClick = () => {
-    setSearchFocus(false);
-    initKeyword();
-  };
-
   const getMenuClass = (path: string) => {
     if (path === pathname) {
       return mergeClassName(MENU_CLASS, MENU_CLASS_ACTIVE);
@@ -77,6 +72,10 @@ export const Header = () => {
   }, [location.pathname, params]);
 
   useEffect(() => {
+    const onWindowClick = () => {
+      setSearchFocus(false);
+      initKeyword();
+    };
     window.addEventListener('click', onWindowClick);
 
     return () => {
